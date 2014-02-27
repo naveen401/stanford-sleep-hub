@@ -1,0 +1,40 @@
+.navbar-collapse .in{
+	height: auto;
+}
+.form-group{
+	width: 250px;
+	padding-right: 5px;
+}
+
+body{
+    padding-top: 50px;
+}
+.content{
+  padding: 40px 15px;
+}
+
+#sign-up-div{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup-control{
+	margin-top: 20px;
+}
+
+#sign-up{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#page-canvas{
+	margin-top: 60px;
+	width: 70%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0,0,0,0.3);
+}

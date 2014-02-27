@@ -1,0 +1,41 @@
+!!! 5
+html
+  head
+  title  Stanford Sleep Hub
+  link(rel='stylesheet', href='stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='stylesheets/index.css')
+  link(rel='stylesheet', href='stylesheets/vendor/simplegrid.css')
+
+  body
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-collapse.in
+      form(action="login", method="post").navbar-form.navbar-right
+        input(type="hidden", name="_csrf", value="#{csrftoken}")
+        div.form-group
+          input(type="text", name="username", placeholder="Username", class="form-control")
+        div.form-group
+          input(type="password", name="password", placeholder="Password", class="form-control")
+        button(type="submit").btn.btn-success Sign In
+  h1#welcome
+    |Welcome to the Stanford Sleep Hub.
+  div#sign-up-div
+    h1#sign-up
+      |Sign up for the Stanford Sleep Hub.
+    form(id="signupForm", action="signup", method="post")
+      input(type="hidden", name="_csrf", value="#{csrftoken}").signup-control
+      input(type="text", name = "username", placeholder="Username", class="form-control").signup-control
+      input(type="text", name="email", placeholder="Email Address", class="form-control").signup-control
+      input(type="password", name="password", placeholder="Password", class="form-control").signup-control
+      input(type="submit", class="form-control", value="Sign Up").btn-warning.signup-control Sign Up
+
+
+
+
+
+block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/bootstrap/bootstrap.min.js")
+
+

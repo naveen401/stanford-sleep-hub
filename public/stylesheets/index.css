@@ -1,0 +1,64 @@
+.navbar-collapse .in{
+	height: auto;
+}
+.form-group{
+	width: 250px;
+	padding-right: 5px;
+}
+
+body{
+    padding-top: 50px;
+}
+.content{
+  padding: 40px 15px;
+}
+
+div#welcome-div{
+  top: 60px;
+  text-align: center;
+}
+
+#welcome{
+  color: white;
+  position: absolute;
+  width: 100%;
+  top: 90px;
+  text-align: center;
+}
+
+html{
+  background: url("../images/bg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: blur(100px) brightness(0.5);
+}
+
+#sign-up-div{
+	height: 230px;
+	width: 300px;
+	right: 105px;
+	position: absolute;
+	top: 221px;
+	background: #fff;
+	border-radius: 4px;
+}
+
+#sign-up{
+	text-align: center;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+
+.signup-control{
+	margin: auto;
+	margin-bottom: 8px;
+	width: 90%;
+}
+
+#links{
+	top: 300px;
+}
+
+

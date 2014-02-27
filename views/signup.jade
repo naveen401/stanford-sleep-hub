@@ -1,0 +1,36 @@
+extends layout
+
+block head
+  title  Elite
+  link(rel='stylesheet', href='stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='stylesheets/signup.css')
+  link(rel='stylesheet', href='stylesheets/vendor/simplegrid.css')
+block content
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-collapse.in
+      form(action="signin", method="post").navbar-form.navbar-right
+        input(type="hidden", name="_csrf", value="#{csrftoken}")
+        div.form-group
+          input(type="text", name="email", placeholder="Email", class="form-control")
+        div.form-group
+          input(type="password", name="password", placeholder="Password", class="form-control")
+        button(type="submit").btn.btn-success Sign In
+  div#page-canvas  
+    div#sign-up-div
+      h1#sign-up
+        | Join Elite today.
+        form(id="signupForm", action="signup", method="post")
+          input(type="hidden", name="_csrf", value="#{csrftoken}")
+          input(type="text", name = "name", value="#{formInfo['name']}", class="form-control").signup-control
+          input(type="text", name="email", value="#{formInfo['email']}", class="form-control").signup-control
+          input(type="password", name="password", value="#{formInfo['password']}", placeholder="Password", class="form-control").signup-control
+          input(type="submit", class="form-control", value="Sign Up").btn-warning.signup-control Sign Up
+
+block bodyscripts
+  block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")
+  script(type="text/javascript", src="/javascripts/pagescripts/index.js")
+  
+  
