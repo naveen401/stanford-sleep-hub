@@ -1,0 +1,25 @@
+extends layout
+
+block head
+  title Sleep and Dreams
+  link(rel='stylesheet', href='stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='stylesheets/vendor/simplegrid.css')
+  link(rel='stylesheet', href='stylesheets/vendor/c3.css')
+  link(rel='stylesheet', href='stylesheets/about.css')
+
+block content
+  div.panel.panel-success.first
+    div.panel-heading.center
+      h1.panel-title.page_title About the Stanford Sleep Hub
+    div.panel-body
+      p As of 2008, less than 1.8% of Stanford students have had access, at any point in their lives, to proper education about the importance of sleep in their daily lives. However, sleep is as vital a need as food or water, and a lack of sleep can have drastic effects on an individual’s daily functioning. The Stanford Sleep Hub provides a way for students to track their sleeping habits over time and thus to monitor their sleep debt. Students input their sleep data through an accessory smartphone app, which prompts the individual every two hours to record a subjective rating of their current level of functioning, real-time. The paired app and website also calculate total time asleep over the course of the day and record overall feeling or mood for the day. This data is then presented on easy-to-read graphs, which can be found on the Analytics tab of this website. In addition, students are provided with various resources to increase their awareness about sleep debt, sleep disorders, dreams, and other related issues. First, the Blog section provides in depth, topical articles that serve as an excellent source of knowledge for students who are curious about various specific sleep issues. Furthermore, students with individual questions are given the opportunity to ask them anonymously and receive advice based on their qualms. To see past entries, check the Advice Column tab. The Stanford Sleep Hub provides a comprehensive, holistic approach to sleep management, coupling sleep tracking systems with easy access to relevant research and information. It is our mission to ensure that every student has adequate education and the necessary tools to manage their own sleep effectively.
+
+block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/d3.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/c3.min.js")
+  script(src="/javascripts/vendor/bootstrap/bootstrap.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")
+
+

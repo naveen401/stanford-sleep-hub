@@ -6,7 +6,10 @@ var express = require('express')
   , helmet = require('helmet')
   , flash = require('connect-flash')
   , util = require('util')
-  , expressValidator = require('express-validator');
+  , expressValidator = require('express-validator')
+  , validator = require('validator');
+
+
 
 var app = express();
 

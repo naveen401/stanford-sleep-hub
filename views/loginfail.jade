@@ -1,0 +1,24 @@
+block head
+  title Sleep and Dreams
+  link(rel='stylesheet', href='/stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/simplegrid.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/c3.css')
+  link(rel='stylesheet', href='/stylesheets/loginfail.css')
+
+block content
+  h1#sign-up
+    |Login to the Stanford Sleep Hub.
+  div#login-div
+    form(id="loginForm", action="../login", method="post")
+      input(type="hidden", name="_csrf", value="#{csrftoken}").login-control
+      input(type="text", name = "username", placeholder="Username", class="form-control").login-control
+      input(type="password", name="password", placeholder="Password", class="form-control").login-control
+      input(type="submit", class="form-control button", value="Login").btn-success.login-control Sign Up
+    p.error| Invalid username and/or password.
+
+
+block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(src="/javascripts/vendor/bootstrap/bootstrap.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")

@@ -1,0 +1,27 @@
+block head
+  title Sleep and Dreams
+  link(rel='stylesheet', href='/stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/simplegrid.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/c3.css')
+  link(rel='stylesheet', href='/stylesheets/signupfail.css')
+
+block content
+  h1#sign-up
+    |Sign up for the Stanford Sleep Hub.
+  div#sign-up-div    
+    form(id="signupForm", action="signup", method="post")
+      input(type="hidden", name="_csrf", value="#{csrftoken}").signup-control
+      input(type="text", name = "username", placeholder="Username", class="form-control").signup-control
+      input(type="text", name="email", placeholder="Email Address", class="form-control").signup-control
+      input(type="text", name="phone", placeholder="Phone Number", class="form-control").signup-control
+      input(type="password", name="password", placeholder="Password", class="form-control").signup-control
+      input(type="submit", class="form-control", value="Sign Up").btn-warning.signup-control Sign Up
+    - for (var i = 0; i < errors.length; ++i) {
+        p.error= errors[i]
+    - }
+
+block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(src="/javascripts/vendor/bootstrap/bootstrap.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")

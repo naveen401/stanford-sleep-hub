@@ -1,0 +1,23 @@
+extends layout
+
+block head
+  title Sleep and Dreams
+  link(rel='stylesheet', href='../../stylesheets/vendor/bootstrap/bootstrap.min.css')
+  link(rel='stylesheet', href='../../stylesheets/vendor/simplegrid.css')
+  link(rel='stylesheet', href='../../stylesheets/vendor/c3.css')
+  link(rel='stylesheet', href='../../stylesheets/analytics.css')
+
+block content
+  div#sleep_chart_wrapper
+    p.chart_header Daily Alertness Scores
+    div#alert_chart.chart
+block bodyscripts
+  script(type="text/javascript", src="/javascripts/vendor/jquery-1.7.2.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/d3.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/c3.min.js")
+  script(src="/javascripts/vendor/bootstrap/bootstrap.min.js")
+  script(type="text/javascript", src="/javascripts/vendor/underscore-min.js")
+  script(type="text/javascript", src="/javascripts/vendor/backbone-min.js")
+  script(type="text/javascript", src="/javascripts/pagescripts/analytics.js")
+  script(type='text/javascript').
+    createDailyLOAGraph();
