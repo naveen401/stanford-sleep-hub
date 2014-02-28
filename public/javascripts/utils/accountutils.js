@@ -2,7 +2,7 @@ var Parse = require('parse').Parse;
 
 Parse.initialize("ZHqQZryFmh8BBn4NcikzU22lUKkviTE21K0cb286", "B9nfNyXZtYzGsAlhp6cQlmbufCSvgGB3DfZ0i7Pn");
 
-exports.createAccount = function createAccount(username, email, phone, password, successFunction, errorFunction){
+exports.createAccount = function createAccount(req, username, email, phone, password, successFunction, errorFunction){
 	var user = new Parse.User();
 	var phoneNumber = parseInt(phone);
 	user.set("username", username);
@@ -25,6 +25,8 @@ exports.createAccount = function createAccount(username, email, phone, password,
 				errorsArray.push("Invalid phone number. Please enter a valid phone number");
 			}
 			if(errorsArray.length == 0){
+				req.session.user = Parse.User.current();
+				req.session.session_token = Parse.User.current()._sessionToken;
 				successFunction();
 			}
 			else{
@@ -38,10 +40,12 @@ exports.createAccount = function createAccount(username, email, phone, password,
 	});
 }
 
-exports.login = function (username, password, successFunction, errorFunction){
+exports.login = function (req, username, password, successFunction, errorFunction){
 	Parse.User.logIn(username, password, {
 		success: function(user){
-			successFunction(user);
+			req.session.user = Parse.User.current();
+			req.session.session_token = Parse.User.current()._sessionToken;
+			successFunction();
 		},
 		error: function(user, error) {
             errorFunction(error);
@@ -49,9 +53,9 @@ exports.login = function (username, password, successFunction, errorFunction){
 	});
 }
 
-exports.getAlertnessData = function(successFunction, errorFunction){
+exports.getAlertnessData = function(successFunction, errorFunction, user){
 	var LOAQuery = new Parse.Query("Day");
-	LOAQuery.equalTo("sleeper", Parse.User.current());
+	LOAQuery.equalTo("sleeper", user);
 	LOAQuery.find({
 		success: function(results){
 			successFunction(results);
@@ -62,15 +66,21 @@ exports.getAlertnessData = function(successFunction, errorFunction){
 	});
 }
 
-exports.getSleepData = function(successFunction, errorFunction, earliestDate){
+exports.getSleepData = function(successFunction, errorFunction, earliestDate, session_token){
 	var DayQuery = new Parse.Query("Day");
-	DayQuery.equalTo("sleeper", Parse.User.current()); 
-	//if(earliestDate != null) DayQuery.greaterThanOrEqualTo("createdAt", earliestDate);
-	DayQuery.find({
-		success: function(results){
-			successFunction(results);
+	Parse.User.become(session_token, {
+		success: function(){
+			DayQuery.equalTo("sleeper", Parse.User.current()); 
+			DayQuery.find({
+				success: function(results){
+					successFunction(results);
+				},
+				error: function(error){
+					errorFunction(error);	
+				}
+			});
 		},
-		error: function(error){
+		error: function(){
 			errorFunction(error);	
 		}
 	});

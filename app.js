@@ -7,7 +7,7 @@ var express = require('express')
   , flash = require('connect-flash')
   , util = require('util')
   , expressValidator = require('express-validator')
-  , validator = require('validator');
+  , validator = require('validator')
 
 
 
@@ -19,7 +19,7 @@ app.configure(function () {
   app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.cookieParser("ServerSecret6df9d9d054B2F8588ba45a01D56f5d2a"));
-  app.use(express.session({ secret: "ServerSecret6df9d9d054B2F8588ba45a01D56f5d2a", cookie: {httpOnly: true},}))//add , secure: true once we have an SSL
+  app.use(express.session({secret: "ServerSecret6df9d9d054B2F8588ba45a01D56f5d2a"}))//add , secure: true once we have an SSL
   app.use(flash());
   app.use(express.logger('dev'));
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
